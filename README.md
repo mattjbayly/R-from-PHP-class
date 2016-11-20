@@ -23,12 +23,16 @@ For individuals starting completely from scratch, I would recommend creating a d
 
 Starting from an existing project we will install R following this tutorial by Dean Attali (2015): [How To Set Up R on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-r-on-ubuntu-14-04).
 
+Be sure to match your Ubuntu version with the correct R version. In this case I am usign Ubuntu 16.04, but the tutorial uses version 'trusty' rather than 'xenial'. Verify correct version [here](https://cran.rstudio.com/bin/linux/ubuntu/). 
 ```{r, engine='sh', count_lines}
-wc -l en_US.twitter.txt 
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
 ```
 
 
+sudo su - -c "R -e \"devtools::install_github('daattali/shinyjs')\""
 
+sudo su - -c "R -e \"install.packages('RMySQL', repos = 'http://cran.rstudio.com/')\""
 
+sudo apt-get install r-cran-rmysql
 
 
