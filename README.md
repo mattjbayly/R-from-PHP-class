@@ -103,3 +103,25 @@ ALTER USER 'sammy'@'localhost' WITH MAX_CONNECTIONS_PER_HOUR 100;
 
 
 
+Look at where all the packages are installed
+cd /usr/lib/R/library
+cd /usr/local/lib/R/site-library
+cd /usr/lib/R/site-library
+cd RMySQL
+ nano /etc/mysql/my.cnf
+ 
+[clienthost1]   # Note: client + host1
+user = sammy
+password = yourpassword
+database= rsandbox
+host = localhost
+
+Test login from Ubuntu
+mysql --defaults-group-suffix=host1
+
+mysql --defaults-group-suffix=host1
+
+
+library(RMySQL)
+# Initial connection to database
+mydb  = dbConnect(MySQL(), dbname = "rsandbox", user = "sammy", password = "yourpassword", host = "127.0.0.1", port=3306)
