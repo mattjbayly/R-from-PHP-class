@@ -42,12 +42,21 @@ mysql -u root -p
 
 
 ```sql
+-- Get the port number;
  SHOW GLOBAL VARIABLES LIKE 'PORT';
+
+-- Get the host name;
+SELECT @@hostname;
+show variables where Variable_name like '%host%';
 
 ```
 
 
+nano /etc/mysql/my.cnf
 
+```r
+t6 = dbConnect(MySQL(), dbname = "mydbname", user = "myusername", password = "mypassword", host = "127.0.0.1", port=3306)
+```
 
 #### Set up RMySQL with the MySQL configuration file. 
 
