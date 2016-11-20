@@ -28,18 +28,12 @@ Be sure to match your Ubuntu version with the correct R version. In this case I 
 sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
 ```
 
-Install R libraries RMySQL and DBI on your server. You may run into some issues installing RMySQL, if so many sure you set dependacies = TRUE. Example, install.packages("foo", dependencies=TRUE).
 
-```{r, engine='sh', count_lines}
-sudo apt-get install r-cran-rmysql
-sudo su - -c "R -e \"install.packages('RMySQL', repos = 'http://cran.rstudio.com/')\""
-```
 
 We need to figure out some information about how host and port are setup 
 ```{r, engine='sh', count_lines}
 mysql -u root -p
 ```
-
 
 ```sql
 -- Get the port number;
@@ -52,10 +46,28 @@ show variables where Variable_name like '%host%';
 ```
 
 
-nano /etc/mysql/my.cnf
+
+
+
+Install R libraries RMySQL and DBI on your server. You may run into some issues installing RMySQL, if so many sure you set dependacies = TRUE. Example, install.packages("foo", dependencies=TRUE).
+
+```{r, engine='sh', count_lines}
+sudo apt-get install r-cran-rmysql
+sudo su - -c "R -e \"install.packages('RMySQL', repos = 'http://cran.rstudio.com/')\""
+```
+
+Even though my real IP address is something like 176.123.123.54, when I connect directly to the dataabse through RMySQL I am using a localhost connection. You might have to play around with the settigns a little bit for the first successful dbConnect(). Depending on which version of Ubunut you're using, there might be some subtle differenes. If you're really stuck try looking in your 'my.conf' file(MySQL configuration file). ```{r, engine='sh', count_lines} nano /etc/mysql/my.cnf ```.
 
 ```r
-t6 = dbConnect(MySQL(), dbname = "mydbname", user = "myusername", password = "mypassword", host = "127.0.0.1", port=3306)
+# Initial connection to database
+mydb  = dbConnect(MySQL(), dbname = "mydbname", user = "myusername", password = "mypassword", host = "127.0.0.1", port=3306)
+# List tables
+dbListTables(mydb)
+# List fields for a sample table
+dbListFields(mydb, 'potluck')
+
+
+
 ```
 
 #### Set up RMySQL with the MySQL configuration file. 
