@@ -1,8 +1,8 @@
 # R-from-PHP-class
-Integrating R scripts into a LAMP framework overview
+Integrating R scripts into a LAMP stack
 
 ## 1a. Starting from scratch, settign up a LAMP framework with Digigtal Ocean
-For individuals starting completely form scratch I would recomend creating a droplet within digital ocean. Then install Apache, PP and MySQL. 
+There are numerous other tutorials available for running & installing R on a remote server. This overview is designed specifically for installing R on a Ubuntu/Linux server and integrating scripts into an existing LAMP stack. For individuals starting completely form scratch, I would recomend creating a droplet within Digital Ocean or some related web service. Then install Apache, PP and MySQL and finally integrate R into the mix. 
 
 ## 1b. Integrating R into an existing project LAMP
 For individuals starting completely form
@@ -21,14 +21,3 @@ For individuals starting completely form
 | Second row    | **Cell**      | *Cell*               |
 | Third row     | Cell that spans across two columns  ||
 
-Table: Your Caption
-
-|             |          Grouping           ||
-First Header  | Second Header | Third Header |
- ------------ | :-----------: | -----------: |
-Content       |          *Long Cell*        ||
-Content       |   **Cell**    |         Cell |
-
-New section   |     More      |         Data |
-And more      | With an escaped '\|'         ||  
-[Prototype table]
