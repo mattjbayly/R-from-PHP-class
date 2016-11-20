@@ -20,7 +20,12 @@ For individuals starting completely from scratch, I would recommend creating a d
 
 
 ## 1b. Integrating R into an existing project LAMP
-For individuals starting completely form
+
+Starting from an existing project we will install R following this tutorial by Dean Attali (2015): [How To Set Up R on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-r-on-ubuntu-14-04).
+
+```{r, engine='sh', count_lines}
+wc -l en_US.twitter.txt 
+```
 
 
 
