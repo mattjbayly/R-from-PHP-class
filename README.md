@@ -28,11 +28,12 @@ Be sure to match your Ubuntu version with the correct R version. In this case I 
 sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list'
 ```
 
+Install R libraries RMySQL and DBI on your server. You may run into some issues installing RMySQL, if so many sure you set dependacies = TRUE. Example, install.packages("foo", dependencies=TRUE).
 
-sudo su - -c "R -e \"devtools::install_github('daattali/shinyjs')\""
-
-sudo su - -c "R -e \"install.packages('RMySQL', repos = 'http://cran.rstudio.com/')\""
-
+```{r, engine='sh', count_lines}
 sudo apt-get install r-cran-rmysql
+sudo su - -c "R -e \"install.packages('RMySQL', repos = 'http://cran.rstudio.com/')\""
+```
+
 
 
