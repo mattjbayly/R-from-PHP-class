@@ -56,19 +56,37 @@ sudo apt-get install r-cran-rmysql
 sudo su - -c "R -e \"install.packages('RMySQL', repos = 'http://cran.rstudio.com/')\""
 ```
 
-Even though my real IP address is something like 176.123.123.54, when I connect directly to the dataabse through RMySQL I am using a localhost connection. You might have to play around with the settigns a little bit for the first successful dbConnect(). Depending on which version of Ubunut you're using, there might be some subtle differenes. If you're really stuck try looking in your 'my.conf' file(MySQL configuration file). ```{r, engine='sh', count_lines} nano /etc/mysql/my.cnf ```.
+
+### Basic (but dangerous) connection with root
+Even though my real IP address is something like 176.123.123.54, when I connect directly to the dataabse through RMySQL I am using a localhost connection. You might have to play around with the settigns a little bit for the first successful dbConnect(). Depending on which version of Ubunut you're using, there might be some subtle differenes. If you're really stuck try looking in your 'my.conf' file(MySQL configuration file). ``` nano /etc/mysql/my.cnf ```.
 
 ```r
+library(RMySQL)
 # Initial connection to database
 mydb  = dbConnect(MySQL(), dbname = "mydbname", user = "myusername", password = "mypassword", host = "127.0.0.1", port=3306)
 # List tables
 dbListTables(mydb)
 # List fields for a sample table
 dbListFields(mydb, 'potluck')
+# Basic select query
+rs = dbSendQuery(mydb, "select * from potluck")
+rs # notice this is not data, just the SQL result we have to fetch() results to send them to a dataframe.
+mydata = fetch(rs, n=-1)
+# Always be sure to close connections
+dbDisconnect(mydb)
+all_cons = dbListConnections(MySQL()) 
+# List of all connections to ensure we have closed everything
 
-
-
+# Try saving a little sample table as a csv
+getwd()
+setwd("/home/matt")
+dir.create(paste0("/home/matt", "/my_reports"), showWarnings = FALSE)
+setwd(paste0("/home/matt", "/my_reports"))
+write.csv(mydata, file="mydata.csv")
+quit("no")
 ```
+You can veiw the start of the csv file we just created on Ubunut here  ```column -s, -t < mydata.csv | less -#2 -N -S ```. Just make sure you havigate down to the right directory to where you saved it first.
+
 
 #### Set up RMySQL with the MySQL configuration file. 
 
