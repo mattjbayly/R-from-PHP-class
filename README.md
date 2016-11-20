@@ -86,19 +86,19 @@ mysql -u root -p
 SELECT User FROM mysql.user;
 
 -- example with full permissions (example)
-CREATE USER 'sammy'@'rsandbox' IDENTIFIED BY 'yourpassword';
-GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'rsandbox' WITH GRANT OPTION;
-SHOW GRANTS FOR 'sammy'@'rsandbox';
-DROP USER 'sammy'@'rsandbox';
+CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'yourpassword';
+GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
+SHOW GRANTS FOR 'sammy'@'localhost';
+DROP USER 'sammy'@'localhost';
 
 -- example with limited permissions
-CREATE USER 'sammy'@'rsandbox' IDENTIFIED BY 'yourpassword';
-GRANT SELECT ON rsandbox.* TO 'sammy'@'rsandbox';
-SHOW GRANTS FOR 'sammy'@'rsandbox';
+CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'yourpassword';
+GRANT SELECT ON rsandbox.* TO 'sammy'@'localhost';
+SHOW GRANTS FOR 'sammy'@'localhost';
 
 -- set resource limits for sammy (max number of connections)
-ALTER USER 'sammy'@'rsandbox' WITH MAX_QUERIES_PER_HOUR 1000;
-ALTER USER 'sammy'@'rsandbox' WITH MAX_CONNECTIONS_PER_HOUR 100;
+ALTER USER 'sammy'@'localhost' WITH MAX_QUERIES_PER_HOUR 1000;
+ALTER USER 'sammy'@'localhost' WITH MAX_CONNECTIONS_PER_HOUR 100;
 ```
 
 
