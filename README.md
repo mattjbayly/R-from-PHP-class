@@ -35,5 +35,20 @@ sudo apt-get install r-cran-rmysql
 sudo su - -c "R -e \"install.packages('RMySQL', repos = 'http://cran.rstudio.com/')\""
 ```
 
+We need to figure out some information about how host and port are setup 
+```{r, engine='sh', count_lines}
+mysql -u root -p
+```
+
+
+```sql
+ SHOW GLOBAL VARIABLES LIKE 'PORT';
+
+```
+
+
+
+
+#### Set up RMySQL with the MySQL configuration file. 
 
 
