@@ -8,21 +8,21 @@ This tutorial assumes that individuals have a basic understiang of PHP, Apache a
 
 For individuals starting completely form scratch, I would recomend creating a droplet within Digital Ocean or some related web service. Then install Apache, PHP and MySQL and finally integrate R into the mix. 
 
+| DIGITAL OCEAN TUTORIALS |                                                                       | 
+|-------------------------|-----------------------------------------------------------------------| 
+| 1                       | [How To Connect To Your Droplet with SSH](https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh)                               | 
+| 2                       | [Initial Server Setup with Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)                                | 
+| 3                       | [How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04) | 
+| 4                       | [A Basic MySQL Tutorial](https://www.digitalocean.com/community/tutorials/a-basic-mysql-tutorial)                                                | 
+| 5                       | [How To Secure Apache with Let's Encrypt on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-16-04)               | 
+| 6                       | [How To Install and Secure phpMyAdmin on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-16-04)                  |
+
 
 ## 1b. Integrating R into an existing project LAMP
 For individuals starting completely form
 
 
 
-| Tutorials  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
 
-| First Header  | Second Header | Third Header         |
-| :------------ | :-----------: | -------------------: |
-| First row     | Data          | Very long data entry |
-| Second row    | **Cell**      | *Cell*               |
-| Third row     | Cell that spans across two columns  |||
+
 
