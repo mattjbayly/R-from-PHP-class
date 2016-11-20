@@ -22,3 +22,13 @@ For individuals starting completely form
 | Third row     | Cell that spans across two columns  ||
 
 Table: Your Caption
+
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      | With an escaped '\|'         ||  
+[Prototype table]
